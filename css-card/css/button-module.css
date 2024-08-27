@@ -1,0 +1,41 @@
+.button {
+    display: block;
+    background-color: hsl(245, 75%, 52%);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    margin: 0 20px 20px;
+    font-size: 16px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+    background-color: hsl(245, 75%, 60%);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cancel {
+    color: hsl(224, 23%, 55%);
+    font-size: 16px;
+    text-decoration: none;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+.cancel:hover {
+    color: hsl(223, 47%, 23%);
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    color: hsl(224, 23%, 55%);
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+    text-decoration: none;
+}

@@ -1,0 +1,16 @@
+@import url("./card-module.css");
+@import url("./plan-module.css");
+@import url("./button-module.css");
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Red Hat Display', sans-serif;
+    background: url('../images/pattern-background-desktop.svg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

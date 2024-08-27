@@ -1,0 +1,30 @@
+
+.card {
+    background-color: hsl(225, 100%, 98%);
+    width: 100%;
+    max-width: 375px;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+    /* Ensures the card handles overflow properly */
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card h1 {
+    color: hsl(223, 47%, 23%);
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.card p {
+    color: hsl(224, 23%, 55%);
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
