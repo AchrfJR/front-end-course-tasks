@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <title>Frontend Mentor | Fylo landing page with two column layout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Raleway:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --very-dark-blue: hsl(243, 87%, 12%);
+            --desaturated-blue: hsl(238, 22%, 44%);
+            --bright-blue: hsl(224, 93%, 58%);
+            --moderate-cyan: hsl(170, 45%, 43%);
+            --light-grayish-blue: hsl(240, 75%, 98%);
+            --light-gray: hsl(0, 0%, 75%);
+        }
+
+        /* General Styles */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--desaturated-blue);
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: var(--light-grayish-blue);
+        }
+
+        header {
+            background-color: var(--light-grayish-blue);
+            color: var(--very-dark-blue);
+            padding: 3rem 2rem;
+        }
+
+        nav {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo img {
+            height: 30px;
+        }
+
+        .nav-links {
+            display: grid;
+            grid-template-columns: 130px 130px 130px;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--very-dark-blue);
+            text-decoration: none;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 60% 40%;
+            /* Adjust the percentages to fit your layout */
+            max-width: 1200px;
+            margin: 2rem auto;
+            border: none;
+            align-items: center;
+            padding: 2rem 1rem;
+            background-color: var(--light-grayish-blue);
+            color: var(--very-dark-blue);
+            gap: 2rem;
+        }
+
+        .hero img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .hero-content {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .hero h1 {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+
+        .hero p {
+            font-size: 16px;
+            margin: 0 0 1.5rem;
+        }
+
+        .hero-actions {
+            display: grid;
+            grid-template-columns: 70% 30%;
+            /* Adjust the percentages to fit your layout */
+            gap: 0.5rem;
+            /* Space between input field and button */
+            align-items: center;
+            /* Align items vertically */
+        }
+
+        .hero input[type="text"] {
+            padding: 1rem;
+            border-radius: 5px;
+            border: 1px solid var(--light-gray);
+            font-size: 16px;
+            width: 100%;
+            max-width: 90%;
+            /* Allow the input to use up its allocated space */
+        }
+
+        .hero-button {
+            background-color: var(--bright-blue);
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            /* Full width of its grid cell */
+            max-width: 150px;
+            /* Fixed max-width to control button size */
+        }
+
+        .hero-button:hover {
+            background-color: hsl(224, 93%, 48%);
+        }
+
+
+        /* Content Section */
+        .content {
+            display: grid;
+            gap: 2rem 2rem;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            border: none;
+        }
+
+        .content-main {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            align-items: center;
+            gap: 2rem;
+            color: var(--very-dark-blue);
+        }
+
+        .content-text {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .content-text h2 {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 600;
+            font-size: 33px;
+            margin: 0.2rem 0;
+        }
+
+        .content-text p {
+            font-size: 16px;
+        }
+
+        .cta-link {
+            color: var(--moderate-cyan);
+            text-decoration: underline;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .cta-icon {
+            margin-left: 0.5rem;
+        }
+
+        .content img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Evidence Section */
+        .evidence {
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            /* Further reduced width for the image */
+            align-items: end;
+            /* Align items to the bottom of their grid cell */
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            /* Further reduced width of the section */
+            margin-left: 0;
+            margin-right: auto;
+            gap: 0.5rem;
+            /* Space between columns */
+        }
+
+        .evidence img {
+            max-width: 40px;
+            /* Smaller size for the image */
+            height: auto;
+            border-radius: 50%;
+            grid-column: 1;
+        }
+
+        .evidence-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            /* Align content at the bottom of the column */
+            gap: 0.5rem;
+            /* Space between the quote and the bold text */
+            grid-column: 2;
+        }
+
+        .quote {
+            font-size: 14px;
+            /* Reduced font size */
+            font-style: italic;
+            color: var(--desaturated-blue);
+            margin: 0;
+        }
+
+        .bold-text {
+            font-weight: bold;
+            font-size: 14px;
+            /* Reduced font size */
+            margin: 0;
+            display: flex;
+            align-items: center;
+            /* Align text vertically with the image */
+        }
+
+
+
+        /* Call to Action Section */
+        .cta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8rem;
+            background-color: var(--desaturated-blue);
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 50px;
+            border-radius: 5px;
+            gap: 2rem;
+        }
+
+        .cta-content {
+            display: grid;
+            gap: 1rem;
+            width: 100%;
+            max-width: 500px;
+
+        }
+
+        .cta-content input[type="text"] {
+            padding: 0.75rem;
+            border-radius: 5px;
+            border: 1px solid var(--light-gray);
+            font-size: 16px;
+            width: 120%;
+            max-width: 100%;
+        }
+
+        .cta-content button {
+            margin-top: 1rem;
+            width: 100%;
+            max-width: 200px;
+            background-color: var(--bright-blue);
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: hsl(224, 93%, 48%);
+        }
+
+        .cta-text-content {
+            font-size: 16px;
+            margin: 0;
+            max-width: 100%;
+            color: #fff;
+        }
+
+        .cta-text-content h2 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 30px;
+        }
+
+        .cta-text-content p {
+            margin: 0;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: var(--very-dark-blue);
+            color: #fff;
+            padding: 5rem;
+            box-sizing: border-box;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 300px 1fr 300px;
+            /* Fixed width for left and right columns, flexible center column */
+            grid-template-rows: auto auto;
+            /* Two rows: one for logo/contact, one for lists and social media */
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .footer-left {
+            grid-column: 1 / 2;
+            /* First column */
+            grid-row: 1 / 2;
+            /* First row */
+            display: grid;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            margin-bottom: 1rem;
+        }
+
+        .footer-contact-info {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .footer-contact-info p {
+            display: flex;
+            align-items: center;
+            margin: 0.5rem 0;
+        }
+
+        .footer-contact-info img {
+            width: 20px;
+            height: auto;
+            margin-right: 0.5rem;
+        }
+
+        .footer-center {
+            grid-column: 2 / 3;
+            /* Second column */
+            grid-row: 1 / 2;
+            /* First row */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* Two equal-width columns for the lists */
+            gap: 2rem;
+            align-items: start;
+            /* Align items at the start of the grid area */
+            margin-top: 2rem;
+            /* Adjust margin to lift lists */
+        }
+
+        .footer-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-list li {
+            margin: 1rem 0;
+        }
+
+        .footer-list a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-list a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-right {
+            grid-column: 3 / 4;
+            /* Third column */
+            grid-row: 1 / 2;
+            /* First row */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            /* Align social media icons to the right */
+            gap: 1rem;
+        }
+
+        .social-media {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            /* Space from the rest of the footer */
+        }
+
+        .social-media a {
+            color: #fff;
+        }
+
+        .social-media img {
+            width: 25px;
+            border-radius: 15px;
+            height: auto;
+        }
+
+
+
+        .background-images {
+            position: relative;
+            width: 100%;
+        }
+
+        .bg-curve-mobile,
+        .bg-curve-desktop {
+            position: absolute;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .bg-curve-mobile {
+            bottom: 0;
+            display: none;
+        }
+
+        .bg-curve-desktop {
+            bottom: 0;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .bg-curve-desktop {
+                display: none;
+            }
+
+            .bg-curve-mobile {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo.svg" alt="Fylo logo">
+            </div>
+            <div class="nav-links">
+                <a href="#">Features</a>
+                <a href="#">Team</a>
+                <a href="#">Sign In</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>All your files in one secure location, accessible anywhere.</h1>
+            <p>Fylo stores your most important files in one secure location. Access them wherever you need, share and
+                collaborate with friends, family, and co-workers.</p>
+            <div class="hero-actions">
+                <input type="text" placeholder="Enter your email">
+                <button class="hero-button">Get Started</button>
+            </div>
+        </div>
+        <img src="images/illustration-1.svg" alt="Illustration intro">
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+        <div class="content-main">
+            <div class="content-text">
+                <h2>Stay productive, wherever you are</h2>
+                <p>Never let location be an issue when accessing your files. Fylo has you covered for all of your file
+                    storage needs.</p>
+                <p>Securely share files and folders with friends, family, and colleagues for live collaboration. No
+                    email attachments required!</p>
+                <a href="#" class="cta-link">
+                    See how Fylo works
+                    <img src="images/icon-arrow.svg" alt="Arrow icon" class="cta-icon">
+                </a>
+            </div>
+            <img src="images/illustration-2.svg" alt="Illustration Content">
+        </div>
+
+        <!-- Evidence Section -->
+        <div class="evidence">
+            <img src="images/avatar-testimonial.jpg" alt="Kyle Burton">
+            <div class="evidence-content">
+                <p class="quote">"Fylo has improved our team productivity by an order of magnitude. Since making the
+                    switch our team has become a well-oiled collaboration machine."</p>
+                <p class="bold-text">Kyle Burton</p>
+                <p class="bold-text">Founder & CEO, Huddle</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action Section -->
+    <section class="cta">
+        <div class="cta-text-content">
+            <h2>Get early access today</h2>
+            <p>It only takes a minute to sign up and our free starter tier is extremely generous. If you have any
+                questions, our support team is always available to help.</p>
+        </div>
+        <div class="cta-content">
+            <input type="text" placeholder="Email Address">
+            <button class="cta-button">Get Started For Free</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <img src="images/logo.svg" alt="Fylo logo">
+                </div>
+                <div class="footer-contact-info">
+                    <p><img src="images/icon-phone.svg" alt="Phone icon"> +1-543-123-4567</p>
+                    <p><img src="images/icon-email.svg" alt="Email icon"> support@fylo.com</p>
+                </div>
+            </div>
+
+            <div class="footer-center">
+                <ul class="footer-list">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Jobs</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+                <ul class="footer-list">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Privacy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-right">
+                <div class="social-media">
+                    <a href="#"><img src="images/facebook.jpeg" alt="Facebook icon"></a>
+                    <a href="#"><img src="images/twitter.png" alt="Twitter icon"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+
+
+
