@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify DOM Example</title>
+</head>
+<body>
+    <div id="content">
+        <h2>Old Title</h2>
+        <p>Old paragraph text.</p>
+    </div>
+
+    <script>
+        const title = document.querySelector('#content h2')
+        const paragraph = document.querySelector('#content p')
+
+        // Modify the title
+        title.textContent = 'New Title'
+
+        // Modify the paragraph
+        paragraph.textContent = 'New paragraph text.'
+        
+        // Remove the old paragraph
+        paragraph.remove()
+
+
+        // Adding a new paragraph
+        const newParagraph = document.createElement('p')
+        newParagraph.textContent = 'This is a new paragraph.'
+        document.getElementById('content').appendChild(newParagraph)
+    </script>
+</body>
+</html>
