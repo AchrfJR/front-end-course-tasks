@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Loop</title>
+</head>
+<body>
+    <div id="image-container"></div>
+
+    <script>
+        const container = document.getElementById('image-container')
+
+        for (let i = 1; i <= 10; i++) {
+            const img = document.createElement('img')
+            img.src = `https://picsum.photos/200/200?random=${i}` // Random placeholder images
+            img.alt = `Image ${i}`
+            img.style.margin = '10px'
+            container.appendChild(img)
+        }
+    </script>
+</body>
+</html>
