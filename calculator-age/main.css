@@ -1,8 +1,9 @@
+/* Load custom fonts */
 @font-face {
     font-family: 'Poppins';
     src: url('/mnt/data/Poppins-Regular.ttf') format('truetype'),
-        url('/mnt/data/Poppins-BoldItalic.ttf') format('truetype'),
-        url('/mnt/data/Poppins-ExtraBold.ttf') format('truetype');
+         url('/mnt/data/Poppins-BoldItalic.ttf') format('truetype'),
+         url('/mnt/data/Poppins-ExtraBold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -23,10 +24,9 @@ body {
     background-color: white;
     padding: 2rem;
     border-radius: 20px 20px 130px 20px;
-    /*Largerborder-radiusinthebottom-rightcorner*/box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 100%;
-
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 90%; /* Changed to percentage for responsiveness */
+    width: 500px;   /* Set a max width */
 }
 
 h1 {
@@ -53,7 +53,8 @@ input {
     padding: 0.8rem;
     border: 1px solid hsl(0, 0%, 80%);
     border-radius: 10px;
-    width: 100px;
+    width: 100%; /* Full width for responsiveness */
+    max-width: 100px; /* Limit max width */
 }
 
 label {
@@ -65,7 +66,7 @@ label {
 .divider {
     position: relative;
     display: flex;
-    justify-content: flex-end; /* Ensure the icon aligns to the end of the hr */
+    justify-content: flex-end;
     align-items: center;
     margin-top: 1.5rem;
 }
@@ -80,35 +81,31 @@ hr {
 .arrow-icon {
     width: 45px;
     height: 45px;
-    border-radius: 50%; /* Make the icon circular */
-    background-color: #6A5AE0; /* Change the color of the background */
+    border-radius: 50%;
+    background-color: #6A5AE0;
     display: inline-block;
-    margin-left: 10px; /* Add space between hr and icon */
+    margin-left: 10px;
 }
 
 /* Output section */
 #output {
     margin-top: 2rem;
     text-align: left;
-    /* Aligning text to the left */
     font-weight: bold;
 }
 
-.age-output{
+.age-output {
     font-size: 4rem;
-    /* Equal size for numbers and labels */
     color: #6A5AE0;
-    /* Blue color for both numbers and labels */
     margin-right: 10px;
 }
 
-.age-label{
+.age-label {
     font-size: 4rem;
-    /* Equal size for numbers and labels */
     color: black;
-    /* Blue color for both numbers and labels */
     margin-right: 10px;
 }
+
 #output p {
     font-size: 1.5rem;
     margin: 0.5rem 0;
@@ -119,4 +116,23 @@ hr {
     font-size: 0.8rem;
     text-align: center;
     margin-top: 2rem;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .age-output, .age-label {
+        font-size: 3rem; /* Reduce size for smaller screens */
+    }
+
+    #output p {
+        font-size: 1.2rem; /* Adjust text size */
+    }
 }
