@@ -22,17 +22,16 @@ body {
 /* Card styling */
 .card {
     background-color: white;
-    padding: 2rem;
-    border-radius: 20px 20px 130px 20px;
+    padding: 1.5rem; /* Reduced padding for mobile */
+    border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 90%; /* Changed to percentage for responsiveness */
-    width: 500px;   /* Set a max width */
+    max-width: 90%; /* Ensure it scales on mobile */
+    width: 500px;   
 }
 
 h1 {
     text-align: center;
-    font-size: 2rem;
-    color: #3B3B3B;
+    font-size: 1.8rem; /* Slightly smaller for mobile */
 }
 
 form {
@@ -44,21 +43,20 @@ form {
 /* Input group styling */
 .input-group {
     display: flex;
-    justify-content: space-between;
-    gap: 1rem;
+    flex-direction: column; /* Stack inputs vertically on mobile */
+    gap: 0.5rem; /* Reduced gap */
     margin-bottom: 1.5rem;
 }
 
 input {
-    padding: 0.8rem;
+    padding: 0.6rem; /* Reduced padding */
     border: 1px solid hsl(0, 0%, 80%);
     border-radius: 10px;
-    width: 100%; /* Full width for responsiveness */
-    max-width: 100px; /* Limit max width */
+    width: 100%; /* Full width */
 }
 
 label {
-    font-size: 0.9rem;
+    font-size: 0.8rem; /* Smaller label size */
     color: hsl(0, 0%, 44%);
 }
 
@@ -68,19 +66,19 @@ label {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-top: 1.5rem;
+    margin-top: 1rem; /* Reduced margin */
 }
 
 hr {
     flex-grow: 1;
     border: none;
     border-top: 1px solid hsl(0, 0%, 80%);
-    margin: 1.5rem 0;
+    margin: 1rem 0; /* Adjusted margin */
 }
 
 .arrow-icon {
-    width: 45px;
-    height: 45px;
+    width: 40px; /* Smaller icon */
+    height: 40px;
     border-radius: 50%;
     background-color: #6A5AE0;
     display: inline-block;
@@ -89,25 +87,23 @@ hr {
 
 /* Output section */
 #output {
-    margin-top: 2rem;
+    margin-top: 1.5rem; /* Reduced margin */
     text-align: left;
     font-weight: bold;
 }
 
 .age-output {
-    font-size: 4rem;
+    font-size: 3rem; /* Reduced for mobile */
     color: #6A5AE0;
-    margin-right: 10px;
 }
 
 .age-label {
-    font-size: 4rem;
+    font-size: 3rem; /* Reduced for mobile */
     color: black;
-    margin-right: 10px;
 }
 
 #output p {
-    font-size: 1.5rem;
+    font-size: 1.2rem; /* Adjust text size */
     margin: 0.5rem 0;
 }
 
@@ -115,24 +111,24 @@ hr {
 .attribution {
     font-size: 0.8rem;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 1.5rem; /* Reduced margin */
 }
 
-/* Media Queries for responsiveness */
-@media (max-width: 768px) {
+/* Media Queries for enhanced responsiveness */
+@media (max-width: 480px) {
     h1 {
         font-size: 1.5rem;
     }
 
     .card {
-        padding: 1.5rem;
+        padding: 1rem; /* Even less padding */
     }
 
     .age-output, .age-label {
-        font-size: 3rem; /* Reduce size for smaller screens */
+        font-size: 2.5rem; /* Further reduced */
     }
 
     #output p {
-        font-size: 1.2rem; /* Adjust text size */
+        font-size: 1rem; /* Smaller text for mobile */
     }
 }
