@@ -1,25 +1,52 @@
 // Automatically trigger age calculation whenever inputs change
-document.getElementById("day").addEventListener("input", calculateAndDisplayAge);
-document.getElementById("month").addEventListener("input", calculateAndDisplayAge);
-document.getElementById("year").addEventListener("input", calculateAndDisplayAge);
+document.getElementById("day").addEventListener("input", validateInputs);
+document.getElementById("month").addEventListener("input", validateInputs);
+document.getElementById("year").addEventListener("input", validateInputs);
 
-function calculateAndDisplayAge() {
-    const day = document.getElementById("day").value;
-    const month = document.getElementById("month").value;
-    const year = document.getElementById("year").value;
+function validateInputs() {
+    const dayInput = document.getElementById("day");
+    const monthInput = document.getElementById("month");
+    const yearInput = document.getElementById("year");
 
+    // Get values as numbers
+    const day = parseInt(dayInput.value);
+    const month = parseInt(monthInput.value);
+    const year = parseInt(yearInput.value);
+
+    // Validate day input (1-31)
+    if (day < 1 || day > 31) {
+        dayInput.value = ""; // Clear the input if invalid
+    }
+
+    // Validate month input (1-12)
+    if (month < 1 || month > 12) {
+        monthInput.value = ""; // Clear the input if invalid
+    }
+
+    // Validate year input (positive number only)
+    if (year < 1 || isNaN(year)) {
+        yearInput.value = ""; // Clear the input if invalid
+    }
+
+    // If all inputs are valid, calculate and display age
     if (isValidDate(day, month, year)) {
         const birthDate = new Date(`${year}-${month}-${day}`);
         const age = calculateAge(birthDate);
         displayAge(age);
     } else {
-        displayEmptyAge();
+        displayEmptyAge(); // If inputs are invalid, reset the display
     }
 }
 
 function isValidDate(day, month, year) {
+    // Check if date is valid by constructing a Date object and checking its properties
     const date = new Date(`${year}-${month}-${day}`);
-    return date && date.getDate() == day && month >= 1 && month <= 12;
+    return (
+        date && 
+        date.getFullYear() == year && 
+        date.getMonth() + 1 == month && // JavaScript months are 0-based
+        date.getDate() == day
+    );
 }
 
 function calculateAge(birthDate) {
@@ -30,7 +57,7 @@ function calculateAge(birthDate) {
 
     if (ageDays < 0) {
         ageMonths--;
-        ageDays += new Date(today.getFullYear(), today.getMonth(), 0).getDate(); // days in the previous month
+        ageDays += new Date(today.getFullYear(), today.getMonth(), 0).getDate(); // Get days in previous month
     }
 
     if (ageMonths < 0) {
@@ -52,3 +79,4 @@ function displayEmptyAge() {
     document.querySelectorAll(".age-output")[1].textContent = '--';
     document.querySelectorAll(".age-output")[2].textContent = '--';
 }
+
