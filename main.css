@@ -2,8 +2,10 @@
 @font-face {
     font-family: 'Poppins';
     src: url('/mnt/data/Poppins-Regular.ttf') format('truetype'),
-         url('/mnt/data/Poppins-BoldItalic.ttf') format('truetype'),
-         url('/mnt/data/Poppins-ExtraBold.ttf') format('truetype');
+        url('/mnt/data/Poppins-BoldItalic.ttf') format('truetype'),
+        url('/mnt/data/Poppins-ExtraBold.ttf') format('truetype'),
+        url('/mnt/data/Poppins-Italic.ttf') format('truetype'),
+        url('/mnt/data/Poppins-BoldItalic.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -49,12 +51,16 @@ form {
     margin-bottom: 1.5rem;
 }
 
+.input-group div {
+    flex: 1; /* Make all input containers take equal width */
+}
+
 input {
     padding: 0.8rem;
     border: 1px solid hsl(0, 0%, 80%);
     border-radius: 10px;
     width: 100%; /* Full width for responsiveness */
-    max-width: 100px; /* Limit max width */
+    box-sizing: border-box; /* Ensure padding and borders are included in width */
 }
 
 label {
@@ -116,23 +122,4 @@ hr {
     font-size: 0.8rem;
     text-align: center;
     margin-top: 2rem;
-}
-
-/* Media Queries for responsiveness */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    .card {
-        padding: 1.5rem;
-    }
-
-    .age-output, .age-label {
-        font-size: 3rem; /* Reduce size for smaller screens */
-    }
-
-    #output p {
-        font-size: 1.2rem; /* Adjust text size */
-    }
 }
